@@ -21,33 +21,33 @@ import static org.hamcrest.Matchers.equalTo;
 public class BestBuyStepDefinitions {
 	
 	@Managed(driver = "chrome")
-	private WebDriver hisBrowser;
+	private WebDriver hisBrowser; //se define el driver
 	
-	private Actor christopher = Actor.named("Christopher");
+	private Actor christopher = Actor.named("Christopher"); //se crea el actor
 	
 	private BestBuyHomePage bestBuyHomePage;
 	
 	
 	@Before
-	public void setUp() {
+	public void setUp() { //se asocia el driver del navegador al actor
 		christopher.can(BrowseTheWeb.with(hisBrowser));
 		hisBrowser.manage().window().maximize();
 	}
 		
-	@Given("^christopher is in the home page$")
+	@Given("^christopher is in the home page$") //aqui el actor hace la accion de abrir el navegador
 	public void christopherIsInTheHomePage() throws Exception {
 		christopher.wasAbleTo(OpenTheBrowser.on(bestBuyHomePage));
 		
 	}
 	
 	
-	@When("^he search a \"([^\"]*)\" and adds it in the shop cart$")
+	@When("^he search a \"([^\"]*)\" and adds it in the shop cart$") //aqui el actor hace las acciones de la compra 
 	public void heSearchAAndAddsItInTheShopCart(String arg1) throws Exception {
 	  christopher.wasAbleTo(SarchProduct.the(arg1));
 	  christopher.wasAbleTo(AddProductToCar.to());
 	}
 
-	@Then("^he can see the product there$")
+	@Then("^he can see the product there$") //el actor valida que lo que busco sea lo que le muestra la pagina
 	public void heCanSeeTheProductThere() throws Exception {
 	  christopher.should(seeThat(Verification.product(), equalTo("Samsung - Pantalla De 32\" - Plana - HD - Negro Se Agregó Al Carrito.")));
 	}

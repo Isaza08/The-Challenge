@@ -6,6 +6,7 @@ import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.screenplay.targets.Target;
 
+//se mapea la caja de texto donde se va a buscar el producto
 
 public class BestBuySearchPage extends PageObject  {
 	

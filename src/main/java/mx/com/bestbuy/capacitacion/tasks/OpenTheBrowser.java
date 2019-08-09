@@ -13,7 +13,7 @@ import net.thucydides.core.annotations.Step;
 
 public class OpenTheBrowser implements Task  {
 	
-	private PageObject page;
+	private PageObject page; 
 	
 	public OpenTheBrowser(PageObject page){
 		this.page=page;
@@ -23,13 +23,13 @@ public class OpenTheBrowser implements Task  {
 	@Override
 	@Step("{0} abre el navegador en la pagina principal de BestBuy")
 	public <T extends Actor> void performAs(T actor) {
-		actor.attemptsTo(Open.browserOn(page));
+		actor.attemptsTo(Open.browserOn(page)); //tarea para abir el navegador
 		
 	}
 
 	public static OpenTheBrowser on(PageObject page) {
 		
-		return instrumented(OpenTheBrowser.class, page);
+		return instrumented(OpenTheBrowser.class, page); //llama al constructor de la clase
 	}
 
 	

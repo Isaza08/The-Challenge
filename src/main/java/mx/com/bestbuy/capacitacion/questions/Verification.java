@@ -12,15 +12,17 @@ public class Verification implements Question <String> {
 
 	@Override
 	public String answeredBy(Actor actor) { 
+		//se hace la question para comparar lo que nos muestra en la pantalla con lo que debia de mostrar
+		
 		String palabra = Text.of(ProductToCarPage.cart).viewedBy(actor).asString();
-		StringBuilder sb = new StringBuilder(palabra);
+		StringBuilder sb = new StringBuilder(palabra); 
 		
 		return sb.toString();
 	}
 	
 	public static Verification product() {
 		
-		return new Verification();
+		return new Verification(); 
 	}
 
 }

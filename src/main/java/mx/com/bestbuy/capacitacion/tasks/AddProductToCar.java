@@ -13,15 +13,17 @@ public class AddProductToCar implements Task {
 	@Override
 	public <T extends Actor> void performAs(T actor) {
 		
-		actor.attemptsTo(Scroll.to(ProductToCarPage.btnAddToCar),
-				Click.on(ProductToCarPage.btnAddToCar),
+		//definimos las tareas que debe de hacer el actor a la hora de agregar un producto en el carrito de compras
+		
+		actor.attemptsTo(Scroll.to(ProductToCarPage.btnAddToCar), 
+				Click.on(ProductToCarPage.btnAddToCar), 
 				Click.on(ProductToCarPage.radioSoporte),
 				Click.on(ProductToCarPage.btnAddToCar2));
 	}
 
 	public static AddProductToCar to() {
 
-		return instrumented(AddProductToCar.class);
+		return instrumented(AddProductToCar.class); //llama al constructor de la clase
 	}
 	
 

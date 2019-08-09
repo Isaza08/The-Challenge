@@ -11,21 +11,21 @@ import mx.com.bestbuy.capacitacion.userinterfaces.BestBuySearchPage;
 
 public class SarchProduct implements Task {
 	
-    String tvSamsung ;
+    String tvSamsung ; //definimos la variable que trae el parametro que colocamos en el archivo .feature
 	
-	public SarchProduct(String tvSamsung){
+	public SarchProduct(String tvSamsung){ //constructor para el parametro
 		this.tvSamsung = tvSamsung;
 	}
 
 	@Override
 	public <T extends Actor> void performAs(T actor) {
 		
-		actor.attemptsTo(Enter.theValue(tvSamsung).into(BestBuySearchPage.searchProduct).thenHit(Keys.ENTER));
+		actor.attemptsTo(Enter.theValue(tvSamsung).into(BestBuySearchPage.searchProduct).thenHit(Keys.ENTER)); //tarea donde se ingresa el producto que se va a buscar
 	}
 
 	public static SarchProduct the(String tvSamsung) {
 	
-		return instrumented(SarchProduct.class, tvSamsung);
+		return instrumented(SarchProduct.class, tvSamsung); //llama al constructor de la clase
 	}
 	
 

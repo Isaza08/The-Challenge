@@ -11,7 +11,7 @@ public class Verification implements Question <String> {
 
 
 	@Override
-	public String answeredBy(Actor actor) {
+	public String answeredBy(Actor actor) { 
 		String palabra = Text.of(ProductToCarPage.cart).viewedBy(actor).asString();
 		StringBuilder sb = new StringBuilder(palabra);
 		

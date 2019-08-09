@@ -1,0 +1,45 @@
+
+repositories{ //es para indicar de donde vienen las liberias
+		mavenLocal() //busca primero las que ya haya descargado antes
+		mavenCentral() //busca en mavenrepository en la web
+		jcenter() //si en las anteriores no se encuentran entonces pasan a buscarlas aqui
+	}
+	
+	//Especifica pluggins para inyectarle a gradle
+	buildscript{
+		repositories{
+			mavenLocal()
+			mavenCentral()
+			jcenter()
+	}
+	
+		dependencies{
+			classpath("net.serenity-bdd:serenity-gradle-plugin:2.0.13")
+			//este pluggin es para gradle, no para el proyecto
+		}
+	}
+	
+	
+	apply plugin: 'java'
+	apply plugin: 'eclipse'
+	apply plugin: 'idea'
+	apply plugin: 'net.serenity-bdd.aggregator' //Es para poder tener un par de tareas en gradle que generan el reporte
+	//gradle genera el reporte
+	
+	dependencies{
+	testCompile 'net.serenity-bdd:serenity-core:2.0.8'
+	testCompile 'net.serenity-bdd:serenity-junit:2.0.8'
+	testCompile ('junit:junit:4.12')
+	testCompile ('org.assertj:assertj-core:1.7.0')
+	testCompile ('org.slf4j:slf4j-simple:1.7.7')
+	
+	compile 'net.serenity-bdd:serenity-core:1.9.9'
+	compile 'net.serenity-bdd:serenity-junit:1.9.9'
+	compile 'net.serenity-bdd:serenity-cucumber:1.9.5'
+	compile 'net.serenity-bdd:serenity-screenplay:1.9.9'
+	compile 'net.serenity-bdd:serenity-screenplay-webdriver:1.9.9'
+	}
+	gradle.startParameter.continueOnFailure=true //si falla alguna prueba no se detiene sino que sigue con las demás
+	test.finalizedBy(aggregate)
+
+

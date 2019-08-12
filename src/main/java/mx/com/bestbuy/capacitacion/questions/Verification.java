@@ -16,7 +16,8 @@ public class Verification implements Question <String> {
 		
 		String palabra = Text.of(ProductToCarPage.cart).viewedBy(actor).asString();
 		StringBuilder sb = new StringBuilder(palabra); 
-		
+		sb.deleteCharAt(24);
+		sb.deleteCharAt(54);
 		return sb.toString();
 	}
 	

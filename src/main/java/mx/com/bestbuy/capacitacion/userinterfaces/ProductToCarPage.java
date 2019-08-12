@@ -1,6 +1,7 @@
 package mx.com.bestbuy.capacitacion.userinterfaces;
 
 
+import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.screenplay.targets.Target;
 
